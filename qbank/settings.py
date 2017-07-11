@@ -36,7 +36,7 @@ DJANGO_CONTRIB_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
 ]
 
 THIRD_PARTY_APPS = [
@@ -46,6 +46,7 @@ THIRD_PARTY_APPS = [
 CUSTOM_APPS = [
     'authentication',
     'dashboard',
+    'accounts',
 ]
 
 INSTALLED_APPS = DJANGO_CONTRIB_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
