@@ -8,14 +8,17 @@
     <div class="content-container p-5">
         {% include "breadcrumbs.html" with action="Delete" %}
 
-        <form action="" method="post">{% csrf_token %}
-            <div class="alert alert-danger" role="alert">
-                <strong>Delete "{{ object }}"?</strong>
-                <p class="pt-4">Do you wish to proceed with this action ?</p>
+        <div class="card card-inverse card-danger my-5">
+            <div class="card-block">
+                <form action="" method="post">{% csrf_token %}
+                    <strong>Delete "{{ object }}"?</strong>
+                    <p class="pt-4">Do you wish to proceed with this action ?</p>
+                    <button type="submit" class="btn btn-danger">Delete Account</button>
+                    <a class="btn btn-secondary" href="{% url "dashboard" %}">Cancel</a>
+                </form>
             </div>
+        </div>
 
-            <input type="submit" value="Confirm" />
-        </form>
     </div>
 </div>
 {% endblock %}

@@ -60,6 +60,9 @@
 .white-bg {
     background-color: #F8F9FD
 }
+.grey-bg {
+    background-color: #f5f5f5;
+}
 .content-container {
     min-height: 83vh;
 }
@@ -68,16 +71,31 @@
 
 
 /* ***************************************  *\
+                 Breadcrumb 
+\* ***************************************  */
+.breadcrumb {
+    background-color: f5f5f5;
+}
+/*------------------------------------------*/
+/*------------------------------------------*/
+
+
+
+/* ***************************************  *\
                  Cards 
 \* ***************************************  */
 .card-info {
-    background: rgba(183, 233, 252, 0.17);
-    border: 1px solid rgb(228, 244, 255);
+    background: rgba(183, 233, 252, 0.4);
+    border: 1px solid rgb(193, 232, 253);
 }
-
 .card-success {
-    background: rgba(94, 220, 144, 0.08);
-    border: 1px solid #e5f7f3;
+    background: rgba(99, 226, 150, 0.28);
+    border: 1px solid #aff1d0;
+}
+.card-danger {
+    background: rgb(255, 166, 162);
+    border: 1px solid #ffa29e;
+    color: #333333;
 }
 /*------------------------------------------*/
 /*------------------------------------------*/

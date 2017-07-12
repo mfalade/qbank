@@ -11,7 +11,7 @@ class Dashboard(View):
     items_limit = 15
     
     def get(self, request):
-        accounts_qs = AccountModel.objects.all()
+        accounts_qs = AccountModel.objects.order_by('-date_created')
         paginator = Paginator(accounts_qs, self.items_limit)
         accounts = paginator.page(1)
         context = {'accounts': accounts}
