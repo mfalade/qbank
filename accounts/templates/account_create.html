@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    Create Account
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid  white-bg">
+    <div class="content-container p-5">
+        {% include "breadcrumbs.html" with action="Create" %}
+
+        <div>
+            <div class="card card-inverse card-success my-5">
+            <div class="card-block">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-5">
+                            {{ form }}
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <input type="submit" class="btn btn-success btn-lg" value="Create New Account" />
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

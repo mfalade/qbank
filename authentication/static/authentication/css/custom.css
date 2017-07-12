@@ -74,6 +74,11 @@
     background: rgba(183, 233, 252, 0.17);
     border: 1px solid rgb(228, 244, 255);
 }
+
+.card-success {
+    background: rgba(94, 220, 144, 0.08);
+    border: 1px solid #e5f7f3;
+}
 /*------------------------------------------*/
 /*------------------------------------------*/
 
@@ -117,11 +122,12 @@ h6 {
     margin-bottom: .75rem;
     border-radius: 2px;
 }
-
 label {
     margin-bottom: 3px;
     color: #736D71;
-    text-transform: uppercase;
+}
+.errorlist li {
+    color: #ce3927;
 }
 /*-------------------------------------------*/
 /*-------------------------------------------*/

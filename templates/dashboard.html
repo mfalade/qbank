@@ -10,7 +10,7 @@
         <div class="d-flex justify-content-end pb-4">
             <h5 class="mr-auto p-2 blue u-line">Accounts</h5>
             <div class="p-2">
-                <a class="btn btn-success" href="{% url "account:account_create" %}">Create Account</a>
+                <a class="btn btn-success" href="{% url "account:account_create" %}">Create New Account</a>
             </div>
         </div>
         <table class="table table-hover custom-table px-4">
@@ -43,7 +43,7 @@
             <div class="alert alert-info" role="alert">
                 <strong>Bummer!</strong> No Accounts found.
             </div>
-            <a href="{% url "account:create" %}">Add New Account</a> 
+            <a href="{% url "account:account_create" %}">Get started by adding a new account</a> 
         {% endif %}
     </div>
 </div>

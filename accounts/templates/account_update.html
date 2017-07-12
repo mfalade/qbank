@@ -1,17 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}
-    Create Account
+    Update {{ object }}
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid  white-bg">
     <div class="content-container p-5">
-        <div class="">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url "dashboard" %}">Dashboard</a></li>
-                <li class="breadcrumb-item active">Create Account</li>
-            </ol>
-        </div>
+
+        {% include "breadcrumbs.html" with action="Update" %}
 
         <div>
             <div class="card card-inverse card-info my-5">
@@ -23,13 +19,12 @@
                             {{ form }}
                         </div>
                     </div>
-                    <div class="pt-4">
-                        <input type="submit" class="btn btn-success btn-lg" value="Create New Account" />
-                    </div>
+                    <input type="submit" value="Update account details" />
                 </form>
             </div>
             </div>
         </div>
+
     </div>
 </div>
 {% endblock %}
