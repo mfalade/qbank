@@ -1,0 +1,51 @@
+{% extends "base.html" %} 
+
+{% block title %}{% endblock %} 
+
+{% block content %}
+
+<div class="container-fluid  white-bg">
+    <div class="content-container p-5">
+        {% if accounts %}
+        <div class="d-flex justify-content-end pb-4">
+            <h5 class="mr-auto p-2 blue u-line">Accounts</h5>
+            <div class="p-2">
+                <a class="btn btn-success" href="{% url "account:account_create" %}">Create Account</a>
+            </div>
+        </div>
+        <table class="table table-hover custom-table px-4">
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Account Number</th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for account in accounts %}            
+                <tr>
+                <th scope="row">{{ account.id }}</th>
+                <td>{{ account.firstname }}</td>
+                <td>{{ account.lastname }}</td>
+                <td>{{ account.iban }}</td>
+                <td class="d-flex justify-content-end">
+                    <a class="btn btn-secondary info" href="{% url "account:account_edit" account.id %}">Edit</a>
+                    &nbsp; &nbsp;
+                    <a class="btn btn-secondary danger" href="{% url "account:account_delete" account.id %}">Delete</a>
+                </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <div class="alert alert-info" role="alert">
+                <strong>Bummer!</strong> No Accounts found.
+            </div>
+            <a href="{% url "account:create" %}">Add New Account</a> 
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
