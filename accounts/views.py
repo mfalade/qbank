@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import View
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.views.generic.edit import DeleteView, FormView, UpdateView
 
 from accounts.forms import AccountForm
 from accounts.models import AccountModel
