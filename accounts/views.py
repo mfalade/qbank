@@ -18,11 +18,12 @@ class AccountView(FormView):
 
 class AccountDeleteView(DeleteView):
     model = AccountModel
+    form_class = AccountForm
     template_name = 'account_confirm_delete.html'
     success_url = reverse_lazy('dashboard')
 
 
 class AccountUpdateView(UpdateView):
+    form_class = AccountForm    
     model = AccountModel
     template_name = 'account_update.html'
-    fields = '__all__'
