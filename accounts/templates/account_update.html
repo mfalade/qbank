@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    Update {{ object }}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid  white-bg">
+    <div class="content-container p-5">
+
+        {% include "breadcrumbs.html" with action="Update" %}
+
+        <div>
+            <div class="card card-inverse card-info my-5">
+            <div class="card-block">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-5">
+                            {{ form }}
+                        </div>
+                    </div>
+                    <input type="submit" value="Update account details" />
+                </form>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
