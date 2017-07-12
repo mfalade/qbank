@@ -12,7 +12,9 @@ class AccountView(FormView):
     success_url = '/dashboard'
 
     def form_valid(self, form):
-        form.save()
+        account_instance = form.save(commit=False)
+        account_instance.creator = self.request.user
+        account_instance.save()
         return super(AccountView, self).form_valid(form)
 
 
@@ -24,6 +26,7 @@ class AccountDeleteView(DeleteView):
 
 
 class AccountUpdateView(UpdateView):
-    form_class = AccountForm    
+    form_class = AccountForm
     model = AccountModel
     template_name = 'account_update.html'
+    success_url = reverse_lazy('dashboard')    
