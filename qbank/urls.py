@@ -20,6 +20,7 @@ from dashboard.views import Dashboard
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'account/', include('accounts.urls', namespace='account')),
     url(r'dashboard$', Dashboard.as_view(), name='dashboard'),
     url('', include('authentication.urls', namespace='auth')),
 ]

@@ -1,10 +1,18 @@
 from django.shortcuts import render
 from django.views import View
+from django.core.paginator import Paginator
+
+from accounts.models import AccountModel
 
 
 # Create your views here.
 class Dashboard(View):
-    dashboard_template = 'dashboard.html'
+    template_name = 'dashboard.html'
+    items_limit = 15
     
     def get(self, request):
-        return render(request, self.dashboard_template)
+        accounts_qs = AccountModel.objects.all()
+        paginator = Paginator(accounts_qs, self.items_limit)
+        accounts = paginator.page(1)
+        context = {'accounts': accounts}
+        return render(request, self.template_name, context)

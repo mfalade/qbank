@@ -1,8 +1,17 @@
 from django.forms import ModelForm
 
-from accounts.models import Account
+from accounts.models import AccountModel
 
-class AccountForm(ModelForm):
+
+class BaseForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(BaseForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
+
+class AccountForm(BaseForm):
     class Meta:
-        model = Account
+        model = AccountModel
+        ordering = ['-id']
         fields = '__all__'

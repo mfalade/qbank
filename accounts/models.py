@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import RegexValidator
 
-class Account(models.Model):
+class AccountModel(models.Model):
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     iban = models.CharField(
@@ -9,3 +9,6 @@ class Account(models.Model):
         unique=True,
         validators=[RegexValidator(r'^\d{1,10}$')]
     )
+
+    def __str__(self):
+        return '{0}-{1}'.format(self.firstname, self.lastname)
