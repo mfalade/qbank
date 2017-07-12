@@ -6,11 +6,11 @@ from django.contrib.auth.models import User
 class AccountModel(models.Model):
     firstname = models.CharField(
         max_length=100,
-        validators=[MinLengthValidator(2)]
+        validators=[MinLengthValidator(2, message='2 or more characters required.')]
     )
     lastname = models.CharField(
         max_length=100,
-        validators=[MinLengthValidator(2)]        
+        validators=[MinLengthValidator(2, message='2 or more characters required.')], 
     )
     iban = models.CharField(
         max_length=10,
