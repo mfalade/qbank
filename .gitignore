@@ -2,4 +2,3 @@ qbank/__pycache__/
 *.sqlite3
 *.pyc
 .DS_Store
-static/
