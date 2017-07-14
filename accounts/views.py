@@ -24,7 +24,6 @@ class AccountDeleteView(DeleteView):
     model = AccountModel
     form_class = AccountForm
     template_name = 'account_confirm_delete.html'
-    forbidden_template = 'forbidden.html'
     success_url = reverse_lazy('dashboard')
 
     def get_object(self, queryset=None):
@@ -39,5 +38,12 @@ class AccountUpdateView(UpdateView):
     form_class = AccountForm
     model = AccountModel
     template_name = 'account_update.html'
-    success_url = reverse_lazy('dashboard')    
+    success_url = reverse_lazy('dashboard')
+
+    def get_object(self, queryset=None):
+        account = super(AccountUpdateView, self).get_object()
+        user = self.request.user
+        if any([account.creator == user, user.is_superuser]):
+            return account
+        raise PermissionDenied 
  
