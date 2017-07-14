@@ -134,23 +134,6 @@ label {
 a.btn:hover, .btn:hover  {
     cursor: pointer;
 }
-.btn-success {
-    border-color: #89E5B0;
-    background-color: #5EDC90;
-}
-.btn-success:hover {
-    border-color: #89E5B0;
-    background-color: #4ecc80;
-}
-.btn-secondary {
-    color: #736D71;
-    background: none;
-    border-color: #D1DCE4;    
-}
-.btn-secondary:hover {
-    background-color: #fff;
-    border-color: #C4C5C1;    
-}
 .info:hover {
     color: #5BA9FE!important;
     border-color: #5BA9FE; 
@@ -198,6 +181,23 @@ a.btn, .btn {
     color: #e86464!important;
     border-color: #e86464; 
 }
+.btn-success {
+    border-color: #89E5B0;
+    background-color: #5EDC90;
+}
+.btn-success:hover {
+    border-color: #89E5B0;
+    background-color: #4ecc80;
+}
+.btn-secondary {
+    color: #736D71!important;
+    background: none;
+    border-color: #D1DCE4;    
+}
+.btn-secondary:hover {
+    background-color: #fff;
+    border-color: #C4C5C1!important;    
+}
 /*------------------------------------------*/
 /*------------------------------------------*/
 
@@ -232,6 +232,13 @@ a.btn, .btn {
 }
 .content-container {
     min-height: 83vh;
+}
+span.visual-clue {
+    padding-top: 8px;
+    color: #e86464;
+}
+span.visual-clue.allowed {
+    color: #4ecc80;
 }
 /*------------------------------------------*/
 /*------------------------------------------*/
