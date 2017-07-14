@@ -42,9 +42,13 @@
         </table>
         {% else %}
             <div class="alert alert-info" role="alert">
-                <strong>Bummer!</strong> No Accounts found.
+                <strong>Welcome!</strong> 
+                <br >                
+                <br >                
+                <p>There are currently no accounts on the system.</p>
+                <br >            
+                <a href="{% url "account:account_create" %}">Get started by adding a new account</a> 
             </div>
-            <a href="{% url "account:account_create" %}">Get started by adding a new account</a> 
         {% endif %}
     </div>
 </div>

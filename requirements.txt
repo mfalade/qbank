@@ -1,0 +1,4 @@
+Django==1.11.3
+psycopg2==2.7.1
+social-auth-app-django==1.2.0
+social-auth-core==1.4.0
