@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+import dj_database_url
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -91,15 +93,9 @@ WSGI_APPLICATION = 'qbank.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+db_from_env = dj_database_url.config()
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('QBANK_DB_NAME'),                      
-        'USER': os.environ.get('QBANK_DB_USER'), 
-        'PASSWORD': os.environ.get('QBANK_DB_PASSWORD'), 
-        'HOST': os.environ.get('QBANK_DB_HOST'),
-        'PORT': os.environ.get('QBANK_DB_PORT'),
-    }
+    'default': db_from_env
 }
 
 
