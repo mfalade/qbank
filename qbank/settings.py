@@ -26,7 +26,9 @@ SECRET_KEY = 'p)t5r_y*pm-vvx^o!p+n)*ilp_x+d%=feql3@y2axl7^f9+2#g'
 IS_PROD_ENV = os.environ.get('APP_ENV') == 'PRODUCTION'
 DEBUG = not IS_PROD_ENV
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'q-bank.herokuapp.com'
+]
 
 
 # Application definition
