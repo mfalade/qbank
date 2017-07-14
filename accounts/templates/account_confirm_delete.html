@@ -11,10 +11,14 @@
         <div class="card card-inverse card-danger my-5">
             <div class="card-block">
                 <form action="" method="post">{% csrf_token %}
-                    <strong>Delete "{{ object }}"?</strong>
+                    <strong>Delete Account</strong>
+                    <hr>
+                    <p>Firstname: <span>{{ object.firstname }}</span></p>
+                    <p>Lastname: <span>{{ object.lastname }}</span></p>
+                    <p>Iban: <span>{{ object.iban }}</span></p>
                     <p class="pt-4">Do you wish to proceed with this action ?</p>
                     <button type="submit" class="btn btn-danger">Delete Account</button>
-                    <a class="btn btn-secondary" href="{% url "dashboard" %}">Cancel</a>
+                    <a class="btn btn-secondary white" href="{% url "dashboard" %}">Cancel</a>
                 </form>
             </div>
         </div>

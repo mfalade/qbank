@@ -41,35 +41,6 @@
 /*------------------------------------------*/
 
 
-
-/* ***************************************  *\
-                 Custom 
-\* ***************************************  */
-* {
-    font-size: 0.98em;
-}
-.blue {
-    color: #5BA9FD!important;
-}
-.u-line {
-    border-bottom: 2px solid #5BA9FD;
-}
-.purple-bg {
-    background: linear-gradient(141deg, #736EFE 0%, #8099F2 51%)
-}
-.white-bg {
-    background-color: #F8F9FD
-}
-.grey-bg {
-    background-color: #f5f5f5;
-}
-.content-container {
-    min-height: 83vh;
-}
-/*------------------------------------------*/
-/*------------------------------------------*/
-
-
 /* ***************************************  *\
                  Breadcrumb 
 \* ***************************************  */
@@ -93,8 +64,8 @@
     border: 1px solid #aff1d0;
 }
 .card-danger {
-    background: rgb(255, 166, 162);
-    border: 1px solid #ffa29e;
+    background: rgba(255, 166, 162, 0.59);
+    border: 1px solid rgba(255, 162, 158, 0.46);
     color: #333333;
 }
 /*------------------------------------------*/
@@ -226,6 +197,37 @@ a.btn, .btn {
 .danger:hover {
     color: #e86464!important;
     border-color: #e86464; 
+}
+/*------------------------------------------*/
+/*------------------------------------------*/
+
+
+/* ***************************************  *\
+                 Custom 
+\* ***************************************  */
+* {
+    font-size: 0.98em;
+}
+.blue {
+    color: #5BA9FD!important;
+}
+.white {
+    background: #F5ffff!important;
+}
+.u-line {
+    border-bottom: 2px solid #5BA9FD;
+}
+.purple-bg {
+    background: linear-gradient(141deg, #736EFE 0%, #8099F2 51%)
+}
+.white-bg {
+    background-color: #F8F9FD
+}
+.grey-bg {
+    background-color: #f5f5f5;
+}
+.content-container {
+    min-height: 83vh;
 }
 /*------------------------------------------*/
 /*------------------------------------------*/
