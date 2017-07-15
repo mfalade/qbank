@@ -249,6 +249,9 @@ span.visual-clue.allowed {
     align-items: center;
     justify-content: center;
 }
+.bold {
+    font-weight: 600;
+}
 
 /*------------------------------------------*/
 /*------------------------------------------*/

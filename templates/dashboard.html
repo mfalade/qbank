@@ -27,9 +27,9 @@
                 {% for account in accounts %}            
                     <tr>
                     <th scope="row">{{ forloop.counter }}</th>
-                    <td>{{ account.firstname }}</td>
-                    <td>{{ account.lastname }}</td>
-                    <td>{{ account.iban }}</td>
+                    <td>{{ account.firstname |title }}</td>
+                    <td>{{ account.lastname |title }}</td>
+                    <td class="bold">{{ account.iban }}</td>
                     <td class="d-flex justify-content-end">
                         <a class="btn btn-secondary info" href="{% url "account:account_edit" account.id %}">Edit</a>
                         &nbsp; &nbsp;
