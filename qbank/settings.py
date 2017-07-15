@@ -29,7 +29,8 @@ IS_PROD_ENV = os.environ.get('APP_ENV') == 'PRODUCTION'
 DEBUG = not IS_PROD_ENV
 
 ALLOWED_HOSTS = [
-    'q-bank.herokuapp.com'
+    'q-bank.herokuapp.com',
+    'localhost'
 ]
 
 
@@ -94,9 +95,17 @@ WSGI_APPLICATION = 'qbank.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 db_from_env = dj_database_url.config()
-DATABASES = {
-    'default': db_from_env
-}
+if IS_PROD_ENV:
+    DATABASES = {
+        'default': db_from_env
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
@@ -151,4 +160,5 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('QBANK_GOOGLE_AUTH_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('QBANK_GOOGLE_AUTH_SECRET')
 SOCIAL_AUTH_URL_NAMESPACE = 'auth:social'
 SOCIAL_AUTH_USER_MODEL = 'auth.User'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/login'
+LOGIN_URL = '/login'
