@@ -16,6 +16,7 @@ class AccountModel(models.Model):
         max_length=10,
         unique=True,
         validators=[RegexValidator(r'^\d{10}$')],
+        verbose_name='IBAN',
         error_messages={
             'invalid':'IBAN must consist of numbers only and must be 10 characters in length.',
             'unique': 'An account with this IBAN already exists.'
