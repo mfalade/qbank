@@ -21,7 +21,8 @@ from dashboard.views import Dashboard
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'account/', include('accounts.urls', namespace='account')),
-    url(r'dashboard$', login_required(Dashboard.as_view()), name='dashboard'),
+    url(r'^account/', include('accounts.urls', namespace='account')),
+    url(r'^dashboard$', login_required(Dashboard.as_view()), name='dashboard'),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
     url('', include('authentication.urls', namespace='auth')),
 ]
