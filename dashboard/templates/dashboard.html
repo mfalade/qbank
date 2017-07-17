@@ -1,6 +1,8 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
-{% block title %}Dashboard{% endblock %} 
+{% block title %}
+    Dashboard
+{% endblock %} 
 
 {% block content %}
 
@@ -16,39 +18,52 @@
         <table class="table table-hover custom-table px-4">
             <thead>
                 <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>IBAN</th>
-                <th></th>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>IBAN</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                {% for account in accounts %}            
-                    <tr>
+                {% for account in accounts %}
+                <tr>
                     <th scope="row">{{ forloop.counter }}</th>
                     <td>{{ account.firstname |title }}</td>
                     <td>{{ account.lastname |title }}</td>
                     <td class="bold">{{ account.iban }}</td>
                     <td class="d-flex justify-content-end">
-                        <a class="btn btn-secondary info" href="{% url "account:account_edit" account.id %}">Edit</a>
-                        &nbsp; &nbsp;
+                        <a class="btn btn-secondary info" href="{% url "account:account_edit" account.id %}">Edit</a> &nbsp;
+                        &nbsp;
                         <a class="btn btn-secondary danger" href="{% url "account:account_delete" account.id %}">Delete</a>
                         <span class="visual-clue {% if account.creator == user or user.is_superuser %}allowed{% endif %}">&nbsp;&nbsp; &#8226; </span>
                     </td>
-                    </tr>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
+        {% if is_paginated %}
+        <div class="pagination d-flex justify-content-center">
+            <span class="page-links">
+            {% if page_obj.has_previous %}
+                <a href="/dashboard?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+            <span class="page-current">
+                &nbsp;&nbsp; Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span> {% if page_obj.has_next %}
+                &nbsp;&nbsp;<a href="/dashboard?page={{ page_obj.next_page_number }}">next</a> {% endif %}
+            </span>
+        </div>
+        {% endif %}
         {% else %}
-            <div class="alert alert-info" role="alert">
-                <strong>Welcome!</strong> 
-                <br >                
-                <br >                
-                <p>There are currently no accounts on the system.</p>
-                <br >            
-                <a href="{% url "account:account_create" %}">Get started by adding a new account</a> 
-            </div>
+        <div class="alert alert-info" role="alert">
+            <strong>Welcome!</strong>
+            <br>
+            <br>
+            <p>There are currently no accounts on the system.</p>
+            <br>
+            <a href="{% url "account:account_create" %}">Get started by adding a new account</a>
+        </div>
         {% endif %}
     </div>
 </div>
