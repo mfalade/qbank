@@ -1,6 +1,4 @@
-from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.views import View
 from django.core.exceptions import PermissionDenied
 from django.views.generic.edit import DeleteView, FormView, UpdateView
 
@@ -9,8 +7,8 @@ from accounts.models import AccountModel
 
 
 class AccountView(FormView):
-    template_name = 'account_create.html'
     form_class = AccountForm
+    template_name = 'account_create.html'
     success_url = '/dashboard'
 
     def form_valid(self, form):
@@ -35,8 +33,8 @@ class AccountDeleteView(DeleteView):
 
 
 class AccountUpdateView(UpdateView):
-    form_class = AccountForm
     model = AccountModel
+    form_class = AccountForm
     template_name = 'account_update.html'
     success_url = reverse_lazy('dashboard')
 
