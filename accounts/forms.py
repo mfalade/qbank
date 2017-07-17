@@ -14,4 +14,4 @@ class AccountForm(BaseForm):
     class Meta:
         model = AccountModel
         ordering = ['-id']
-        exclude = ['date_created', 'creator']
+        fields = ['firstname', 'lastname', 'iban']
