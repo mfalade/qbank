@@ -5,8 +5,8 @@ from accounts.models import AccountModel
 
 
 class DashboardView(ListView):
-    template_name = 'dashboard.html'
     model = AccountModel
+    template_name = 'dashboard.html'
     context_object_name = 'accounts'
     paginate_by = 6
     
