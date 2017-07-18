@@ -26,7 +26,7 @@ SECRET_KEY = 'p)t5r_y*pm-vvx^o!p+n)*ilp_x+d%=feql3@y2axl7^f9+2#g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 IS_PROD_ENV = os.environ.get('APP_ENV') == 'production'
-DEBUG = IS_PROD_ENV
+DEBUG = not IS_PROD_ENV
 
 ALLOWED_HOSTS = [
     'q-bank.herokuapp.com',
@@ -98,17 +98,10 @@ WSGI_APPLICATION = 'qbank.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 db_from_env = dj_database_url.config()
-if IS_PROD_ENV:
-    DATABASES = {
-        'default': db_from_env
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'db.sqlite3',
-        }
-    }
+
+DATABASES = {
+    'default': db_from_env
+}
 
 
 # Password validation
