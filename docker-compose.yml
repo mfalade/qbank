@@ -4,7 +4,8 @@ services:
   db:
     image: postgres
     expose:
-      - 5432
+      - "5432"
+
   web:
     restart: always
     build: .
@@ -14,6 +15,5 @@ services:
       - .:/code
     ports:
       - "8000:8000"
-      - "5432:5432"      
     depends_on:
       - db
