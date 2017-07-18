@@ -1,7 +1,9 @@
 from django.db import models
 from django.utils import timezone
 from django.core.validators import MinLengthValidator, RegexValidator
+from internationalflavor.iban import IBANField
 from django.contrib.auth.models import User
+
 
 class AccountModel(models.Model):
     firstname = models.CharField(
@@ -12,15 +14,9 @@ class AccountModel(models.Model):
         max_length=100,
         validators=[MinLengthValidator(2, message='2 or more characters required.')], 
     )
-    iban = models.CharField(
-        max_length=10,
-        unique=True,
-        validators=[RegexValidator(r'^\d{10}$')],
+    iban = IBANField(
         verbose_name='IBAN',
-        error_messages={
-            'invalid':'IBAN must consist of numbers only and must be 10 characters in length.',
-            'unique': 'An account with this IBAN already exists.'
-        }
+        unique=True,
     )
     date_created = models.DateTimeField('date created', default=timezone.now)
     creator = models.ForeignKey(User)
