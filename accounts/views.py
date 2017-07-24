@@ -18,30 +18,29 @@ class AccountView(FormView):
         return super(AccountView, self).form_valid(form)
 
 
-class AccountDeleteView(DeleteView):
-    model = AccountModel
-    form_class = AccountForm
-    template_name = 'accounts/account_confirm_delete.html'
-    success_url = reverse_lazy('dashboard:index')
+class UserPermissionMixin(object):
+    """Ensures only authorized users can perform specific actions.
 
+    Restricts manipulation or deleting of an account to either the 
+    super admin, or the user that created the account.
+    """
     def get_object(self, queryset=None):
-        account = super(AccountDeleteView, self).get_object()
+        account = super(UserPermissionMixin, self).get_object()
         user = self.request.user
         if any([account.creator == user, user.is_superuser]):
             return account
         raise PermissionDenied
 
 
-class AccountUpdateView(UpdateView):
+class AccountDeleteView(UserPermissionMixin, DeleteView):
+    model = AccountModel
+    form_class = AccountForm
+    template_name = 'accounts/account_confirm_delete.html'
+    success_url = reverse_lazy('dashboard:index')
+
+
+class AccountUpdateView(UserPermissionMixin, UpdateView):
     model = AccountModel
     form_class = AccountForm
     template_name = 'accounts/account_update.html'
     success_url = reverse_lazy('dashboard:index')
-
-    def get_object(self, queryset=None):
-        account = super(AccountUpdateView, self).get_object()
-        user = self.request.user
-        if any([account.creator == user, user.is_superuser]):
-            return account
-        raise PermissionDenied 
- 
