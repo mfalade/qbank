@@ -7,7 +7,7 @@ from django.contrib.auth import logout
 class Home(View):
     def get(self, request):
         if request.user.is_authenticated():
-            return redirect('dashboard')
+            return redirect('dashboard:index')
         else:
             return redirect('auth:login')
 

@@ -1,7 +1,7 @@
 
 <div class="grey-bg">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url "dashboard" %}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{% url "dashboard:index" %}">Dashboard</a></li>
         {% if action %}
             <li class="breadcrumb-item active">{{ action }} Account</li>
         {% endif %}

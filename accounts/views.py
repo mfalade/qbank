@@ -22,7 +22,7 @@ class AccountDeleteView(DeleteView):
     model = AccountModel
     form_class = AccountForm
     template_name = 'account_confirm_delete.html'
-    success_url = reverse_lazy('dashboard')
+    success_url = reverse_lazy('dashboard:index')
 
     def get_object(self, queryset=None):
         account = super(AccountDeleteView, self).get_object()
@@ -36,7 +36,7 @@ class AccountUpdateView(UpdateView):
     model = AccountModel
     form_class = AccountForm
     template_name = 'account_update.html'
-    success_url = reverse_lazy('dashboard')
+    success_url = reverse_lazy('dashboard:index')
 
     def get_object(self, queryset=None):
         account = super(AccountUpdateView, self).get_object()
